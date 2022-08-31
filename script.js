@@ -40,13 +40,12 @@ class Audio {
     }
     render(){
        return  `
-            
-            <audio controls id="${this.key}">
-                <source src="${this.src}"  type="audio/mpeg">
-            </audio>
-            <span class="fs-3 px-4 text-success">
-                ${this.btn}
-            </span> 
+                <audio controls id="${this.key}">
+                    <source src="${this.src}"  type="audio/mpeg">
+                </audio>
+                <span class="fs-3 px-4 text-success">
+                    ${this.btn}
+                </span>
        `
     }
 }
@@ -79,6 +78,7 @@ document.addEventListener('keydown', (e) => {
 
         } else {
             playList.firstElementChild.remove()
+            playList.lastElementChild.remove()
         }
 
     } else {
