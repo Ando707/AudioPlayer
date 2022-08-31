@@ -1,13 +1,13 @@
 let dataPlayList = [
     {
-        key: 'KeyA',
+        key: 'KeyZ',
         src: './audio/Rihanna - Diamonds.mp3',
-        btn: 'A'
+        btn: 'Z'
     },
     {
-        key: 'KeyB',
+        key: 'KeyX',
         src: './audio/Aram Asatrayn - Patilner.mp3',
-        btn: 'B'
+        btn: 'X'
     },
     {
         key: 'KeyC',
@@ -15,21 +15,22 @@ let dataPlayList = [
         btn: 'C'
     },
     {
-        key: 'KeyT',
+        key: 'KeyV',
         src: "./audio/INSTASAMKA_-_moneyken-love.mp3",
-        btn: 'T'
+        btn: 'V'
     },
     {
-        key: 'KeyM',
+        key: 'KeyB',
         src: "./audio/miyagi_-_marmalade.mp3",
-        btn: 'M'
+        btn: 'B'
     },
     {
-        key: 'KeyE',
+        key: 'KeyN',
         src: "./audio/egor-krid_-_we-gotta-get-love.mp3",
-        btn: 'E'
+        btn: 'N'
     },
 ]
+const playList = document.querySelector('.play-list');
 
 class Audio {
     constructor( key, src ){
@@ -44,50 +45,44 @@ class Audio {
        `
     }
 }
-function createAudioBox( key , src , btn ) {
-    let audio = new Audio( key , src ).render();
-    return `
-        <div class="d-flex align-items-center">
-            <p class="text-success fs-1 p-2 mb-0">
-                ${btn}
-            </p>
-            ${audio}
-        </div>
-    `;
+
+function createAudio( arg ){
+    playList.innerHTML = new Audio( arg.key, arg.src ).render();
+    let audio = document.getElementById( arg.key );
+    audio.play();
 }
-function createPlayList( data, where ) {
 
-    for( let item of data ){
+document.addEventListener('keydown', (e) => {
+    let item = dataPlayList.find((i) => e.code == i.key)
+    
+    if( playList.childElementCount ) {
 
-        where.insertAdjacentHTML('beforeend', createAudioBox( item.key, item.src, item.btn ))
-        let audio = document.getElementById( item.key );
-        
+        if( item && item.key == playList.firstElementChild.id ){
 
-        document.addEventListener('keydown', (e) => {
-
+            let audio = document.getElementById( item.key );
             let paused = audio.paused
-            if( e.code == item.key ) {
-                if( paused ){
-                    allAudio.forEach( (e) => e.pause() );
-                    audio.play();
-                } else {
-                    audio.pause()
-                }
-            }
-            if ( e.code == 'ArrowRight' && !audio.paused ){
-                audio.currentTime += 1
-            }
-            if ( e.code == 'ArrowLeft' && !audio.paused  ){
-                audio.currentTime -= 1
-            }
-        })
+            paused ? audio.play() : audio.pause();
 
+        } else if( item ){
+
+            createAudio( item )
+
+        } else if ( e.code == 'ArrowRight' || e.code == 'ArrowLeft' ){
+
+            let audio = document.querySelector('audio');
+            e.code == 'ArrowRight' ? audio.currentTime += 1 : audio.currentTime -= 1
+
+        } else {
+            playList.firstElementChild.remove()
+        }
+
+    } else {
+
+        if( item ) {
+            createAudio( item )
+        }
     }
-
-    let allAudio = document.querySelectorAll('audio');
-}
+})
 
 
-const playList = document.querySelector('.play-list');
 
-createPlayList( dataPlayList, playList );
