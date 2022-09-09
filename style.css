@@ -1,5 +1,72 @@
-.play-list {
-    background: #8080801a;
-    border: 1px solid green;
-    border-radius: 30px;
+body {
+     background-image: url('./img/putikner.jpg');
+     background-size: contain;
 }
+input {
+    -webkit-appearance: none;
+    background-color: rgb(33,37,41);
+    outline: none;
+    position: relative;
+    left: 0px;
+    overflow: hidden;
+}
+input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background: rgba(5,254,251,1);
+    box-shadow: -300px 0 0 300px rgba(5,254,251,1);
+}
+#audio-duration-line::-webkit-slider-thumb {
+    width: 4px;
+    height: 4px;
+}
+#audio-volume-line::-webkit-slider-thumb{
+    width: 2px;
+    height: 2px;
+}
+.gradient-dark {
+    background: rgb(6,5,84);
+    background: linear-gradient(90deg, rgba(6,5,84,1) 0%, rgba(2,0,36,1) 15%, rgba(0,0,0,1) 50%, rgba(2,0,36,1) 85%, rgba(6,5,84,1) 100%);
+}
+.nav-item:hover {
+    background-color: rgb(33,37,41);
+}
+.nav-link {
+    color: white;
+}
+.nav-link:focus, .nav-link:hover ,.icon-btns > div:hover {
+    color: rgba(5,254,251,1);
+}
+.card {
+    cursor: pointer;
+    background-color: rgb(33,37,41);
+}
+.bi-volume-up, .bi-volume-mute{
+    color: rgba(5,254,251,1);
+}
+.shadow {
+    box-shadow: 0 .5rem 1rem rgb(6,5,84)!important;
+}
+.play-list-menu {
+    height: 560px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+.card:hover {
+    background: rgb(5,254,251);
+    background: linear-gradient(135deg, rgba(5,254,251,1) 0%, rgba(75,182,237,1) 30%, rgba(5,254,251,1) 50%, rgba(75,182,237,1) 70%, rgba(5,254,251,1) 100%);
+    color: black;
+    font-family: cursive;
+    opacity: 0.7;
+}
+.active-audio {
+    background: rgb(5,254,251);
+    background: linear-gradient(135deg, rgba(5,254,251,1) 0%, rgba(75,182,237,1) 30%, rgba(5,254,251,1) 50%, rgba(75,182,237,1) 70%, rgba(5,254,251,1) 100%);
+    color: black;
+    font-family: cursive;
+}
+.player-btns > div, .nav-item {
+    cursor: pointer;
+}
+
+
+
