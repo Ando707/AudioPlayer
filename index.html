@@ -5,20 +5,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Player</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <div class="text-center">
-        <h1 class="display-1 fw-bold text-danger">PLAYER</h1>
-        <h3 class="display-3">PRESS THE FOLLOWING KEYS TO LISTEN TO THE MUSIC</h3>
+    <header class="gradient-dark">
+        <div class="container d-flex p-3">
+            <ul class="nav navbar-audio mx-auto">
+                <li class="nav-item rounded-3">
+                    <a class="nav-link all active" aria-current="page" href="#">All</a>
+                </li>
+                <li class="nav-item rounded-3">
+                    <a class="nav-link classic" href="#">Classic</a>
+                </li>
+                <li class="nav-item rounded-3">
+                    <a class="nav-link jazz"  href="#">Jazz</a>
+                </li>
+                <li class="nav-item rounded-3">
+                    <a class="nav-link rock" href="#">Rock</a>
+                </li>
+                <li class="nav-item rounded-3">
+                    <a class="nav-link pop" href="#">Pop</a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    <section class="bg-image">
+        <div class="container">
+            <div class="row">
 
-        <ul class="nav flex-column play-list-menu">
-        </ul>
-    </div>
+                 <div class="col-12 col-lg-4 my-auto">
+                    <div class="my-4">
+                        <div class="bg-black shadow text-white p-3 rounded-3 mb-1">
+                            <img src="./img/blue.gif" class="img-fluid" alt="gif">
+                        </div>
+                        <div class="gradient-dark text-white p-3 pb-2 rounded-3">
+                            <label for="customRange1" class="form-label audio-name mb-0"></label>
+                            <div class="d-flex align-items-center">
+                                <span class="audio-current-time">00:00</span>
+                                <input type="range" class="w-100 mx-2" id="audio-duration-line">
+                                <span class="audio-duration">00:00</span>
+                            </div>
+                            
+                            <div class="player-btns my-3 shadow">
+                                <div class="d-flex justify-content-around align-items-center icon-btns">
+                                    <div class="restart">
+                                        <i class="bi bi-arrow-counterclockwise fs-4"></i>
+                                    </div>
+                                    <div class="previos">
+                                        <i class="bi bi-chevron-left fs-4"></i>
+                                    </div>
+                                    <div class="move-left">
+                                        <i class="bi bi-chevron-double-left fs-4"></i>
+                                    </div>
+                                    <div class="play">
+                                        <img src="./svg/play-circle-fill.svg" alt="play" id="play-pause-icon">
+                                    </div>
+                                    <div class="move-right">
+                                        <i class="bi bi-chevron-double-right fs-4"></i>
+                                    </div>
+                                    <div class="next">
+                                        <i class="bi bi-chevron-right fs-4"></i>
+                                    </div>
+                                    <div class="repeat">
+                                        <i class="bi bi-repeat fs-4"></i>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-center icon-btns mt-2">
+                                    <div class="volume-down">
+                                        <i class="bi bi-chevron-down fs-5 px-2"></i>
+                                    </div>
+                                    <div class="volume-muted-unmuted">
+                                        <i class="bi bi-volume-up fs-4 ps-2"></i>
+                                    </div>
+                                    <input type="range" class="w-50 mx-2" min="0" max="100" value="100" id="audio-volume-line">
+                                    <div class="volume-up">
+                                        <i class="bi bi-chevron-up fs-5 px-2"></i>
+                                    </div>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
 
-    <div class="play-list position-absolute bottom-0 start-0 m-3 d-flex align-items-center">
-    </div>
+                <div class="col-12 col-lg-8">
+                    <div class="play-list-menu shadow gradient-dark text-white rounded-3 p-1 mb-4 mt-lg-4">
+                    </div> 
+                </div>                
+            </div>
+        </div>
+    </section>
 
+
+                    
+
+
+
+
+    <!-- <script src="./test.js"></script> -->
     <script src="./script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
